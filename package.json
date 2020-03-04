@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/enso-ui/categories#readme",
   "dependencies": {
-    "@enso-ui/forms": "1.3.x",
-    "@enso-ui/tables": "1.2.x",
+    "@enso-ui/forms": "1.4.x",
+    "@enso-ui/tables": "1.4.x",
     "@enso-ui/tree-view": "0.0.x",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
