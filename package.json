@@ -1,6 +1,6 @@
 {
   "name": "@enso-ui/categories",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Basic categories package",
   "main": "src/bulma/pages/categories/Index.vue",
   "scripts": {
