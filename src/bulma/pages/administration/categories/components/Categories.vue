@@ -26,7 +26,7 @@ export default {
 
     methods: {
         fetch() {
-            axios.get(this.route('administration.categories.options'))
+            axios.get(this.route('administration.categories.index'))
                 .then(({ data }) => this.update(data))
                 .catch(this.errorHandler);
         },
