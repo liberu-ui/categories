@@ -32,7 +32,7 @@ export default {
         },
         update(data) {
             this.categories = data;
-            this.$nextTick(() => this.$refs.treeView.updateFocus());
+            this.$nextTick(() => this.$refs.treeView && this.$refs.treeView.updateFocus());
         },
     },
 };
