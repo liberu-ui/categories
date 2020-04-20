@@ -1,19 +1,18 @@
 <template>
-    <enso-table class="box is-paddingless raises-on-hover"
-        id="categories"/>
+    <div class="columns is-centered">
+        <div class="column is-half">
+            <category-tree class="box"
+                editable/>
+        </div>
+    </div>
 </template>
 
 <script>
-
-import { EnsoTable } from '@enso-ui/tables/bulma';
+import CategoryTree from '../../../components/CategoryTree.vue';
 
 export default {
     name: 'Index',
 
-    components: { EnsoTable },
+    components: { CategoryTree },
 };
-
 </script>
-
-<style lang="scss">
-</style>
