@@ -109,8 +109,10 @@ export default {
         },
         destroy() {
             axios.delete(this.route('administration.categories.destroy', this.category.id))
-                .then(() => this.splice(this.category.id))
-                .catch(this.errorHandler);
+                .then(() => {
+                    this.splice(this.category.id);
+                    this.state.selected = null;
+                }).catch(this.errorHandler);
         },
         edit() {
             this.state.category = this.state.selected;
