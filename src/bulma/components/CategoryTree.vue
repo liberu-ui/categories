@@ -231,9 +231,11 @@ export default {
                 || category.subcategories
                     .some(child => this.matches(child));
         },
-        moved(payload) {
-            axios.patch(this.route('administration.categories.move'), payload)
-                .catch(this.errorHandler);
+        moved({ id, parentId, newIndex }) {
+            axios.patch(
+                this.route('administration.categories.move', id),
+                { parentId, newIndex },
+            ).catch(this.errorHandler);
         },
         preselect() {
             if (!this.value) {
