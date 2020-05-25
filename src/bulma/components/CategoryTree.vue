@@ -1,8 +1,8 @@
 <template>
     <div class="category-tree"
         v-if="categories">
-        <div class="field has-addons">
-            <div class="control is-expanded has-icons-left has-icons-right"
+        <div class="category is-flex">
+            <div class="control name has-icons-left has-icons-right"
                 v-if="!state.category">
                 <input class="input"
                     v-model="state.query"
@@ -16,9 +16,10 @@
                         v-if="state.query"/>
                 </span>
             </div>
-            <div class="control is-expanded has-icons-right"
+            <div class="control name has-icons-right"
                 v-else>
                 <input class="input"
+                   :class="{ 'is-danger': errors.has('name') }"
                     v-model="state.category.name"
                     v-focus
                     :placeholder="i18n('Add new category')"
@@ -28,7 +29,7 @@
                         @click="state.category.name = ''"
                         v-if="state.category.name"/>
                 </span>
-                <p class="help is-danger has-text-centered"
+                <p class="help is-danger"
                    v-if="errors.has('name')">
                     {{ errors.get('name') }}
                 </p>
@@ -165,6 +166,7 @@ export default {
             this.state.category.name = this.state.original;
             this.state.category = null;
             this.state.original = null;
+            this.errors.clear('name');
         },
         clone() {
             return JSON.parse(JSON.stringify(this.categories));
@@ -317,6 +319,10 @@ export default {
 
 <style lang="scss">
     .category-tree {
+        .category .name {
+            flex-grow: 1;
+        }
+
         .categories {
             max-height: 35em;
             overflow: auto;
