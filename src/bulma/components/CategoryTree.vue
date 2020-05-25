@@ -21,12 +21,17 @@
                 <input class="input"
                     v-model="state.category.name"
                     v-focus
-                    :placeholder="i18n('Add new category')">
+                    :placeholder="i18n('Add new category')"
+                    @input="errors.clear('name')">
                 <span class="icon is-right">
                     <a class="delete is-small"
                         @click="state.category.name = ''"
                         v-if="state.category.name"/>
                 </span>
+                <p class="help is-danger has-text-centered"
+                   v-if="errors.has('name')">
+                    {{ errors.get('name') }}
+                </p>
             </div>
             <template v-if="state.editable">
                 <div class="control"
@@ -80,6 +85,7 @@
 </template>
 
 <script>
+import Errors from '@enso-ui/forms/src/classes/Errors.js';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faSearch, faPlus, faBan, faDatabase,
@@ -125,6 +131,7 @@ export default {
             selected: null,
             dragging: null,
         },
+        errors: new Errors(),
     }),
 
     computed: {
@@ -173,6 +180,14 @@ export default {
                     this.state.loading = false;
                 }).catch((error) => {
                     this.state.loading = false;
+
+                    const { status, data } = error.response;
+
+                    if (status === 422) {
+                        this.errors.set(data.errors);
+                        return;
+                    }
+
                     this.errorHandler(error);
                 });
         },
@@ -279,6 +294,14 @@ export default {
                     this.state.loading = false;
                 }).catch((error) => {
                     this.state.loading = false;
+
+                    const { status, data } = error.response;
+
+                    if (status === 422) {
+                        this.errors.set(data.errors);
+                        return;
+                    }
+
                     this.errorHandler(error);
                 });
         },
