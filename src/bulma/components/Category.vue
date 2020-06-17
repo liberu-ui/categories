@@ -47,7 +47,8 @@
         <categories :categories="category.subcategories"
             :parent-id="category.id"
             v-on="$listeners"
-            v-show="!hasChildren || isExpanded"/>
+            v-show="!hasChildren || isExpanded"
+            v-if="hasChildren"/>
     </li>
 </template>
 
@@ -81,7 +82,7 @@ export default {
 
     computed: {
         hasChildren() {
-            return this.category.subcategories.length > 0;
+            return this.category.subcategories && this.category.subcategories.length > 0;
         },
         isExpanded() {
             return this.state.expanded.includes(this.category.id);
