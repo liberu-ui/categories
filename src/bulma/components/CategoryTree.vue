@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import Errors from '@enso-ui/forms/src/classes/Errors.js';
+import Errors from '@enso-ui/laravel-validation';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faSearch, faPlus, faBan, faDatabase,
