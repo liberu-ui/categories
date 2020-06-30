@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/enso-ui/categories#readme",
   "dependencies": {
-    "@enso-ui/directives": "1.0.x",
-    "@enso-ui/confirmation": "1.0.x",
-    "@enso-ui/laravel-validation": "1.0.x",
+    "@enso-ui/directives": "^1.0",
+    "@enso-ui/confirmation": "^1.0",
+    "@enso-ui/laravel-validation": "^1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "vue": "^2.5.16",
