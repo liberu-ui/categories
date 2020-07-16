@@ -36,7 +36,7 @@
             </div>
             <template v-if="state.editable">
                 <div class="control"
-                    v-if="!state.query && !state.category">
+                    v-if="!state.query && !state.category && canAdd">
                     <a class="button"
                         @click="state.category = factory(); selected = null">
                         <span>
@@ -131,6 +131,7 @@ export default {
             query: '',
             selected: null,
             dragging: null,
+            maxNestingLevel: null,
         },
         errors: new Errors(),
     }),
@@ -141,6 +142,10 @@ export default {
                 ? this.filter(this.clone())
                 : this.categories;
         },
+        canAdd() {
+            return this.maxNestingLevel === null
+                || this.level() <= this.maxNestingLevel;
+        }
     },
 
     watch: {
@@ -219,8 +224,9 @@ export default {
         },
         fetch() {
             axios.get(this.route('administration.categories.index'))
-                .then(({ data }) => {
-                    this.categories = data;
+                .then(({data: {categories, maxNestingLevel}}) => {
+                    this.categories = categories;
+                    this.maxNestingLevel = maxNestingLevel;
                     this.preselect();
                 }).catch(this.errorHandler);
         },
@@ -228,6 +234,18 @@ export default {
             return categories
                 .filter(category => this.matches(category))
                 .map(category => this.map(category));
+        },
+        level(category = null) {
+            if (category?.id === this.state.selected?.id) {
+                return 0;
+            }
+
+            const categories = category?.subcategories ?? this.categories;
+
+            const [level = -1] = categories.map(category => this.level(category))
+                .sort().reverse();
+
+            return level >= 0 ? level + 1 : level;
         },
         flatten(categories = this.categories) {
             return categories.reduce((flat, category) => {
