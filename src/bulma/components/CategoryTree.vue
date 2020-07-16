@@ -242,10 +242,10 @@ export default {
 
             const categories = category ? category.subcategories : this.categories;
 
-            const level = categories.map(cat => this.level(selected, cat))
-                .sort().reverse()[0] ?? -1;
+            const [level = -1] = categories.map(category => this.level(selected, category))
+                .sort().reverse();
 
-            return level >= 0 ? level + 1 : -1;
+            return level >= 0 ? level + 1 : level;
         },
         flatten(categories = this.categories) {
             return categories.reduce((flat, category) => {
