@@ -144,7 +144,7 @@ export default {
         },
         canAdd() {
             return this.maxNestingLevel === null
-                || this.level(this.state.selected) <= this.maxNestingLevel;
+                || this.level() <= this.maxNestingLevel;
         }
     },
 
@@ -235,14 +235,14 @@ export default {
                 .filter(category => this.matches(category))
                 .map(category => this.map(category));
         },
-        level(selected, category) {
-            if (selected === null || category?.id === selected.id) {
-               return 0;
+        level(category = null) {
+            if (category?.id === this.state.selected?.id) {
+                return 0;
             }
 
-            const categories = category ? category.subcategories : this.categories;
+            const categories = category?.subcategories ?? this.categories;
 
-            const [level = -1] = categories.map(category => this.level(selected, category))
+            const [level = -1] = categories.map(category => this.level(category))
                 .sort().reverse();
 
             return level >= 0 ? level + 1 : level;
