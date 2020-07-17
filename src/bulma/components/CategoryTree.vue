@@ -145,7 +145,7 @@ export default {
         canAdd() {
             return this.maxNestingLevel === null
                 || this.level() <= this.maxNestingLevel;
-        }
+        },
     },
 
     watch: {
@@ -224,15 +224,14 @@ export default {
         },
         fetch() {
             axios.get(this.route('administration.categories.index'))
-                .then(({data: {categories, maxNestingLevel}}) => {
+                .then(({ data: { categories, maxNestingLevel } }) => {
                     this.categories = categories;
                     this.maxNestingLevel = maxNestingLevel;
                     this.preselect();
                 }).catch(this.errorHandler);
         },
         filter(categories) {
-            return categories
-                .filter(category => this.matches(category))
+            return categories.filter(category => this.matches(category))
                 .map(category => this.map(category));
         },
         level(category = null) {
@@ -249,8 +248,7 @@ export default {
         },
         flatten(categories = this.categories) {
             return categories.reduce((flat, category) => {
-                flat.push(category);
-                flat.push(...this.flatten(category.subcategories));
+                flat.push(category, ...this.flatten(category.subcategories));
 
                 return flat;
             }, []);

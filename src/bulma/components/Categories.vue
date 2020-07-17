@@ -1,7 +1,7 @@
 <template>
     <draggable :list="categories"
         :animation="150"
-        :group="{ name: 'accessories', put: unique }"
+        :group="{ name: 'categories', put: unique }"
         handle=".dropdown-item"
         :disabled="!state.editable || state.query !== '' || !!state.category"
         @change="change"

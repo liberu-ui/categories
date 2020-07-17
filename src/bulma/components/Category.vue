@@ -47,8 +47,7 @@
         <categories :categories="category.subcategories"
             :parent-id="category.id"
             v-on="$listeners"
-            v-show="!hasChildren || isExpanded"
-            v-if="hasChildren"/>
+            v-show="!hasChildren || isExpanded"/>
     </li>
 </template>
 
