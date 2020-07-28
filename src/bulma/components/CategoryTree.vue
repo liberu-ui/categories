@@ -19,19 +19,19 @@
             <div class="control name has-icons-right"
                 v-else>
                 <input class="input"
-                   :class="{ 'is-danger': errors.has('name') }"
+                   :class="{ 'is-danger': errors.any() }"
                     v-model="state.category.name"
                     v-focus
                     :placeholder="i18n('Add new category')"
-                    @input="errors.clear('name')">
+                    @input="errors.empty()">
                 <span class="icon is-right">
                     <a class="delete is-small"
                         @click="state.category.name = ''"
                         v-if="state.category.name"/>
                 </span>
                 <p class="help is-danger"
-                   v-if="errors.has('name')">
-                    {{ errors.get('name') }}
+                   v-if="errors.any()">
+                    {{ i18n(errors.first()) }}
                 </p>
             </div>
             <template v-if="state.editable">
@@ -171,7 +171,7 @@ export default {
             this.state.category.name = this.state.original;
             this.state.category = null;
             this.state.original = null;
-            this.errors.clear('name');
+            this.errors.empty();
         },
         clone() {
             return JSON.parse(JSON.stringify(this.categories));
