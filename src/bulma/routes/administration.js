@@ -1,4 +1,4 @@
-import routeImporter from '@core/modules/importers/routeImporter';
+import routeImporter from '@ui/modules/importers/routeImporter';
 
 const routes = routeImporter(require.context('./administration', false, /.*\.js$/));
 
