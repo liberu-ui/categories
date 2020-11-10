@@ -1,4 +1,4 @@
-import routeImporter from '@ui/modules/importers/routeImporter';
+import routeImporter from '@enso-ui/ui/src/modules/importers/routeImporter';
 
 const routes = routeImporter(require.context('./administration', false, /.*\.js$/));
 
