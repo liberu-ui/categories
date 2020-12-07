@@ -16,6 +16,10 @@
                         </span>
                     </div>
                     <div class="level-item has-padding-left-large">
+                        <figure class="image is-48x48 has-margin-right-medium"
+                            v-if="category.fileId">
+                            <img :src="route('core.files.show', category.fileId)">
+                        </figure>
                         <!-- eslint-disable-next-line vue/no-v-html -->
                         <span v-html="highlight(category.name)"/>
                     </div>
@@ -24,6 +28,18 @@
                     v-if="isSelected">
                     <div class="level-item">
                         <template v-if="state.editable">
+                            <uploader :url="route('administration.categories.upload', category.id)"
+                                file-key="logo"
+                                @upload-successful="upload">
+                                <template v-slot:control="{ controlEvents }">
+                                    <button class="button is-small is-naked"
+                                        v-on="controlEvents">
+                                        <span class="icon">
+                                            <fa icon="upload"/>
+                                        </span>
+                                    </button>
+                                </template>
+                            </uploader>
                             <a class="button is-naked is-small"
                                 @click.stop="edit">
                                 <span class="icon">
@@ -58,13 +74,14 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Confirmation from '@enso-ui/confirmation/bulma';
 import Categories from './Categories.vue';
+import { Uploader } from '@enso-ui/uploader/bulma';
 
 library.add(faMinusSquare, faPlusSquare, faPencilAlt, faTrashAlt);
 
 export default {
     name: 'Category',
 
-    components: { Categories, Confirmation },
+    components: { Categories, Confirmation, Uploader },
 
     inject: ['errorHandler', 'route', 'state'],
 
@@ -140,6 +157,9 @@ export default {
                 this.state.expanded.push(this.category.id);
             }
         },
+        upload(result) {
+            this.category.fileId = result.fileId;
+        }
     },
 };
 </script>
