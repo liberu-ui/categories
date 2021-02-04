@@ -1,18 +1,19 @@
 <template>
     <div class="columns is-centered">
         <div class="column is-half">
-            <category-tree class="box"
+            <tree class="box"
+                route-group="administration.categories"
                 editable/>
         </div>
     </div>
 </template>
 
 <script>
-import CategoryTree from '../../../components/CategoryTree.vue';
+import Tree from '@enso-ui/orderable-trees/bulma';
 
 export default {
     name: 'Index',
 
-    components: { CategoryTree },
+    components: { Tree },
 };
 </script>

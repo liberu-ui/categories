@@ -21,14 +21,11 @@
   },
   "homepage": "https://github.com/enso-ui/categories#readme",
   "dependencies": {
-    "@enso-ui/confirmation": "^1.0",
-    "@enso-ui/directives": "^1.0",
-    "@enso-ui/laravel-validation": "^1.1",
+    "@enso-ui/orderable-trees": "^1.0",
     "@enso-ui/ui": "^4.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "vue": "^2.5.16",
-    "vuedraggable": "^2.23.0"
+    "vue": "^2.5.16"
   },
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
