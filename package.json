@@ -1,6 +1,6 @@
 {
   "name": "@enso-ui/categories",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Basic categories package",
   "main": "src/bulma/components/CategoryTree.vue",
   "scripts": {
