@@ -1,5 +1,5 @@
 {
-  "name": "@enso-ui/categories",
+  "name": "@cgdsoftware/categories",
   "version": "4.0.0",
   "description": "Basic categories package",
   "main": "src/bulma/components/CategoryTree.vue",
@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/enso-ui/categories#readme",
   "dependencies": {
-    "@enso-ui/orderable-trees": "^2.0",
-    "@enso-ui/ui": "^6.0",
+    "@cgdsoftware/orderable-trees": "^2.0",
+    "@cgdsoftware/ui": "^6.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "vue": "^3.0"
