@@ -1,6 +1,6 @@
 {
   "name": "@liberu-ui/categories",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Basic categories package",
   "main": "src/bulma/components/CategoryTree.vue",
   "scripts": {
