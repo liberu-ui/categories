@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enso-ui/categories.git"
+    "url": "git+https://github.com/liberu-ui/categories.git"
   },
   "keywords": [
     "categories",
@@ -17,9 +17,9 @@
   "author": "Adrian Ocneanu <aocneanu@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/enso-ui/categories/issues"
+    "url": "https://github.com/liberu-ui/categories/issues"
   },
-  "homepage": "https://github.com/enso-ui/categories#readme",
+  "homepage": "https://github.com/liberu-ui/categories#readme",
   "dependencies": {
     "@liberu-ui/orderable-trees": "^2.0",
     "@liberu-ui/ui": "^6.0",

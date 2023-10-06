@@ -1,10 +1,10 @@
 # Permissions
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/permissions.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/permissions.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/permissions.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/permissions.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/permissions.svg) 
+![npm license](https://img.shields.io/npm/l/@liberu-ui/permissions.svg) 
+![npm download](https://img.shields.io/npm/dm/@liberu-ui/permissions.svg) 
+![GitHub top language](https://img.shields.io/github/languages/top/liberu-ui/permissions.svg) 
+![GitHub issues](https://img.shields.io/github/issues/liberu-ui/permissions.svg) 
+![npm version](https://img.shields.io/npm/v/@liberu-ui/permissions.svg) 
 
 ## Usage
 The component cannot be used outside of the Liberu ecosystem.

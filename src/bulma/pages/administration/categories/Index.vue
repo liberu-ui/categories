@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Tree from '@enso-ui/orderable-trees/bulma';
+import Tree from '@liberu-ui/orderable-trees/bulma';
 
 export default {
     name: 'Index',
